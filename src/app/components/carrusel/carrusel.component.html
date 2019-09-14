@@ -1,0 +1,57 @@
+<p>carrusel works!</p>
+<ngb-carousel >
+    <ng-template ngbSlide *ngFor="let pelicula of peliculas">
+      <div class="picsum-img-wrapper">
+        <div class="row rowc justify-content-center">
+            <div class="col-sm-8">
+                <img src="{{urlimagen}}{{pelicula.poster_path}}" class="imgc" placement="bottom" 
+                ngbTooltip="Popularidad: {{pelicula.popularity}} N°Votos: {{pelicula.vote_count}} Valoración: {{pelicula.vote_average}}"
+                (click)="openScrollableContent(longContent,pelicula.id)">
+            </div>
+        </div>
+      </div>
+      <div class="carousel-caption">
+        <h3>No mouse navigation</h3>
+        <p>This carousel hides navigation arrows and indicators.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+<!-- <div  class="row" *ngFor="let pelicula of peliculas" >
+    <div class="col">
+        <div class="card" style="width: 18rem;" >
+            <img src="{{urlimagen}}{{pelicula.poster_path}}" class="card-img-top" placement="bottom" 
+            ngbTooltip="Popularidad: {{pelicula.popularity}} N°Votos: {{pelicula.vote_count}} Valoración: {{pelicula.vote_average}}"
+            (click)="openScrollableContent(longContent,pelicula.id)">        
+            <div class="card-body">
+                <h4 class="card-title">{{pelicula.title}}</h4>
+                <p class="card-text">Fecha de estreno: {{pelicula.release_date | date:'dd/MM/yyyy'}}</p>
+                <p class="card-text contenido">{{pelicula.overview}}</p>
+            </div>
+        </div>
+    </div>
+</div> -->
+<ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Detalle de la pelicula</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <table *ngFor="let x of pelicula">
+          <thead>
+              <td>{{x.title}}</td>
+              <td></td>
+          </thead>
+          <tbody >
+              <tr >
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

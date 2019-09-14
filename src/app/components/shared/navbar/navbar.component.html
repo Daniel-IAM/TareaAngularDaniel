@@ -1,0 +1,13 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="assets/images/iron-man.png" width="40px" height="40px" alt="x">
+        PeliculasApp
+    </a>
+    <!-- <a class="navbar-brand"></a> -->
+    <form class="form-inline" >
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" (enter)="getSearch(buscar.value)" #buscar>
+      <button (click)="getSearch(buscar.value)" class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  </nav>
+
+<!--<app-search></app-search>-->
